@@ -11,10 +11,22 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//No Auth Page Routes
+Route::get('/','NoAuthPages@index');
+Route::get('/login','NoAuthPages@login');
+Route::get('/register','NoAuthPages@register');
+Route::get('/activate/{hash}','NoAuthPages@activate');
+Route::get('/resend','NoAuthPages@resend');
 
-Auth::routes();
+//Auth Page Routes
+Route::get('/app','AuthPages@app');
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+//No Auth API Routes
+Route::post('/api/user/exists','NoAuthApi@userExists');
+Route::post('/api/user/login','NoAuthApi@userLogin');
+Route::post('/api/user/register','NoAuthApi@userRegister');
+Route::post('/api/activation/resend','NoAuthApi@activationResend');
+
+//Auth API Routes
+Route::get('/api/user/logout','AuthApi@userLogout');

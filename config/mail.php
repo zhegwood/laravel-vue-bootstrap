@@ -133,4 +133,7 @@ return [
 
     'log_channel' => env('MAIL_LOG_CHANNEL'),
 
+    'from_address' => env('DEFAULT_FROM_ADDRESS','no-reply@yourdomain.com'),
+    'from_name' => env('DEFAULT_FROM_NAME','No Reply'),
+
 ];

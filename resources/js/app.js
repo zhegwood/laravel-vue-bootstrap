@@ -9,6 +9,8 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import store from './store.js'
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -17,7 +19,13 @@ window.Vue = require('vue');
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('auth-nav', require('./components/shared/AuthNav.vue'));
+Vue.component('no-auth-nav', require('./components/shared/NoAuthNav.vue'));
+Vue.component('global-error', require('./components/shared/GlobalError.vue'));
+Vue.component('login', require('./components/no_auth/Login.vue'));
+Vue.component('register', require('./components/no_auth/Register.vue'));
+Vue.component('activate-failure', require('./components/no_auth/ActivateFailure.vue'));
+Vue.component('app', require('./components/auth/App.vue'));
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
@@ -29,5 +37,6 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
  */
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    store
 });
