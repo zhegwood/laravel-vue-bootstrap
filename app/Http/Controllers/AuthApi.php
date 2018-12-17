@@ -8,6 +8,11 @@ use Session;
 
 class AuthApi extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('authenticated');
+    }
+
     //
     public function userLogout() {
         $response = $this->getResponse(true);
