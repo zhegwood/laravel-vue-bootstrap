@@ -22,8 +22,6 @@ import store from './store.js'
 Vue.component('auth-nav', require('./components/shared/AuthNav.vue'));
 Vue.component('no-auth-nav', require('./components/shared/NoAuthNav.vue'));
 Vue.component('global-error', require('./components/shared/GlobalError.vue'));
-Vue.component('activate-failure', require('./components/no_auth/ActivateFailure.vue'));
-Vue.component('app', require('./components/auth/App.vue'));
 
 let url = location.href;
 if (url.indexOf('/login') !== -1) {
@@ -37,8 +35,18 @@ if (url.indexOf('/register') !== -1) {
     });
 }
 if (url.indexOf('/resend') !== -1) {
-    Vue.component('', (resolve) => {
-        require(['./components/no_auth/Resend.vue'],resolve)
+    Vue.component('resend-activation', (resolve) => {
+        require(['./components/no_auth/ResendActivation.vue'],resolve)
+    });
+}
+if (url.indexOf('/activate/') !== -1) {
+    Vue.component('activate-failure', (resolve) => {
+        require(['./components/no_auth/ActivateFailure.vue'],resolve)
+    });
+}
+if (url.indexOf('/app') !== -1) {
+    Vue.component('app', (resolve) => {
+        require(['./components/auth/App.vue'],resolve)
     });
 }
 
