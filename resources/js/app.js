@@ -24,6 +24,7 @@ Vue.component('no-auth-nav', require('./components/shared/NoAuthNav.vue'));
 Vue.component('global-error', require('./components/shared/GlobalError.vue'));
 Vue.component('login', require('./components/no_auth/Login.vue'));
 Vue.component('register', require('./components/no_auth/Register.vue'));
+Vue.component('resend-activation', require('./components/no_auth/ResendActivation.vue'));
 Vue.component('activate-failure', require('./components/no_auth/ActivateFailure.vue'));
 Vue.component('app', require('./components/auth/App.vue'));
 
